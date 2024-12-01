@@ -1,6 +1,0 @@
-public class cities{
-private String name;
-
-public Cities(String name){
-this.name=name;
-}
