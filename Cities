@@ -1,0 +1,3 @@
+public class cities{
+private String name;
+}
