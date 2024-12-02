@@ -1,3 +1,3 @@
-class WayFinder{
+public class WayFinder{
   
 }
