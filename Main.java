@@ -26,6 +26,18 @@ public class Main{
                 System.out.println("Error: Invalid number format for cities count.");
                 return;
   }
-}
+          //şehir etikelerini okur
+          String cityLabelLine=fileScanner.nextLine().trim.();
+          String[] cityLabel=cityLabelLine.split("\\s+");
+          if (cityLabel.length != numCities) {
+              System.out.println("Error: Number of city labels does not match the number of cities.");
+              return;
+          }
+          // CountryMap oluştur
+    	  CountryMap map=new CountryMap(numCities);
+    	  for(String label:cityLabel) {
+    		  map.addCity(label, numCities);
+    	  }
+        }
   }
 }
