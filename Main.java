@@ -4,10 +4,13 @@ import java.util.Scanner;
 import java.io.PrintWriter; 
 public class Main{
   public static void main(String[] args){
-      Scanner scanner = new Scanner(System.in);
+if (args.length < 1) {
+    System.out.println("Error: Please provide the file name as a command-line argument.");
+    return;
+}
 
-        System.out.println("Lütfen dosya adını giriniz: ");
-        String fileName = scanner.nextLine();
+String fileName = args[0];
+
 
         try {
             Scanner fileScanner = new Scanner(Paths.get(fileName));
@@ -104,9 +107,7 @@ public class Main{
     	  
     	  } catch (IOException e) {
           System.out.println("Hata: Dosya bulunamadı veya okunamadı - " + fileName);
-      } finally {
-          scanner.close();
-      }
+      } 
     }
     private static void writeToFile(String fileName,String content) {
     	try(PrintWriter writer =new PrintWriter(fileName)){
