@@ -25,10 +25,10 @@ for(int i=0;i<numCities;i++) {
 	previous[i]=null;
 }
 
-distances[getCityIndex(startCityLabel)] = 0;
+distance[getCityIndex(startCityLabel)] = 0;
 for (int i = 0; i < numCities; i++) {
    
-    int currentIndex = findMinDistanceIndex(distances, visited);
+    int currentIndex = findMinDistanceIndex(distance, visited);
     if (currentIndex == -1) break; 
 
     visited[currentIndex] = true; 
@@ -40,8 +40,8 @@ for (int i = 0; i < numCities; i++) {
         int connectedIndex = getCityIndex(connectedCityLabel);
 
        
-        if (!visited[connectedIndex] && distances[currentIndex] + travelTime < distances[connectedIndex]) {
-            distances[connectedIndex] = distances[currentIndex] + travelTime;
+        if (!visited[connectedIndex] && distance[currentIndex] + travelTime < distances[connectedIndex]) {
+            distance[connectedIndex] = distance[currentIndex] + travelTime;
             previous[connectedIndex] = currentCity.getLabel(); 
         }
     }
@@ -49,7 +49,7 @@ for (int i = 0; i < numCities; i++) {
 
 
 int endIndex = getCityIndex(endCityLabel);
-if (distances[endIndex] == Integer.MAX_VALUE) {
+if (distance[endIndex] == Integer.MAX_VALUE) {
     return "No path found to the destination city.";
 }
 
@@ -62,7 +62,7 @@ while (current != null) {
 }
 path.setLength(path.length() - 4); 
 
-return "Fastest Path: " + path.toString() + "\nTotal Time: " + distances[endIndex] + " min";
+return "Fastest Path: " + path.toString() + "\nTotal Time: " + distance[endIndex] + " min";
 }
 
 private int getCityIndex(String label) {
