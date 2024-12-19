@@ -40,7 +40,7 @@ for (int i = 0; i < numCities; i++) {
         int connectedIndex = getCityIndex(connectedCityLabel);
 
        
-        if (!visited[connectedIndex] && distance[currentIndex] + travelTime < distances[connectedIndex]) {
+        if (!visited[connectedIndex] && distance[currentIndex] + travelTime < distance[connectedIndex]) {
             distance[connectedIndex] = distance[currentIndex] + travelTime;
             previous[connectedIndex] = currentCity.getLabel(); 
         }
