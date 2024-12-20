@@ -53,17 +53,15 @@ if (distance[endIndex] == Integer.MAX_VALUE) {
     return "No path found to the destination city.";
 }
 
-
-StringBuilder path = new StringBuilder();
-String current = endCityLabel;
-while (current != null) {
-    path.insert(0, current + " -> ");
-    current = previous[getCityIndex(current)];
-}
-path.setLength(path.length() - 4); 
-
-return "Fastest Path: " + path.toString() + "\nTotal Time: " + distance[endIndex] + " min";
-}
+// Reconstructs the shortest path from the end city to the start city using the 'previous' array.
+String path = "";
+        String current = endCityLabel;
+        while (current != null) {
+            path = current + (path.isEmpty() ? "" : " -> ") + path;
+            current = previous[getCityIndex(current)];
+	}
+        return "Fastest way: " + path + "\nTotal time: " + distance[endIndex] + " minute";
+    }
 
 private int getCityIndex(String label) {
 City[] cities = map.getCities();
